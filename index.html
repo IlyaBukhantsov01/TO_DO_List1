@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Современный To-Do List" />
+  <title>TaskFlow — To-Do List</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="background">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+
+  <main class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">✓</div>
+
+        <div>
+          <h1>Task<span>Flow</span></h1>
+          <p>Организуй. Выполняй. Побеждай.</p>
+        </div>
+      </div>
+
+      <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+        ☼
+      </button>
+    </header>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+      <div class="welcome">
+        <span class="eyebrow">MY WORKSPACE</span>
+        <h2>Мои задачи</h2>
+        <p id="today"></p>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-info">
+          <span>Прогресс</span>
+          <strong id="progressPercent">0%</strong>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <small>
+          <span id="completedCount">0</span> из
+          <span id="totalCount">0</span> выполнено
+        </small>
+      </div>
+    </section>
+
+    <!-- Add task -->
+    <section class="task-creator">
+      <div class="input-wrapper">
+        <span class="plus">+</span>
+
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Что нужно сделать?"
+          autocomplete="off"
+        />
+      </div>
+
+      <select id="prioritySelect">
+        <option value="low">Низкий</option>
+        <option value="medium" selected>Средний</option>
+        <option value="high">Высокий</option>
+      </select>
+
+      <input
+        type="date"
+        id="dateInput"
+        aria-label="Дата выполнения"
+      />
+
+      <button class="add-btn" id="addTask">
+        Добавить
+      </button>
+    </section>
+
+    <!-- Toolbar -->
+    <section class="toolbar">
+      <div class="filters">
+        <button class="filter active" data-filter="all">
+          Все <span id="allCount">0</span>
+        </button>
+
+        <button class="filter" data-filter="active">
+          Активные <span id="activeCount">0</span>
+        </button>
+
+        <button class="filter" data-filter="completed">
+          Выполненные <span id="doneCount">0</span>
+        </button>
+      </div>
+
+      <div class="search">
+        <span>⌕</span>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Поиск..."
+        />
+      </div>
+    </section>
+
+    <!-- Tasks -->
+    <section class="tasks-section">
+      <div id="taskList" class="task-list"></div>
+
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">✓</div>
+        <h3>Задач пока нет</h3>
+        <p>Добавьте первую задачу и начните продуктивный день.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span>TaskFlow</span>
+      <span>Ваш день. Ваши правила.</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
